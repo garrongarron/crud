@@ -1,3 +1,4 @@
 <?php
-require_once 'classes/DB.php';
+use dafiti\DB;
+include 'dafiti/autoload.php';
 $db = new DB;
