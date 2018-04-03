@@ -3,26 +3,32 @@ namespace dafiti;
 
 class Controller
 {
-	private $db;
-	public function __consrtuct($database = null){
+	public $db;
+	public function __construct($database = null){
 		if($database == null){
-			$db = new DB();	
+			$this->db = new DB();	
 		} else {
-			$db = $database;
+			$this->db = $database;
 		}
-	}
+	}	
+
 	function add($data)
 	{
-		$db->add($data);
+		return $this->db->add($data);
 	}
 
 	function edit($data)
 	{
-		$db->edit($data);
+		return $this->db->edit($data);
 	}
 
 	function delete($data)
 	{
-		$db->delete($data);
+		return $this->db->delete($data);
+	}
+
+	function list()
+	{
+		return $this->db->getAll();
 	}
 }
