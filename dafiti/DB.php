@@ -7,18 +7,24 @@ class DB
 	}
 
 	public function getAll(){
-		return [1,2,3,4];
+		if(!isset($_SESSION)){
+			return [];
+		}
+		return $_SESSION;
 	}
 
 	public function add($data){
-		return 'adding data' . print_r($data, 1);
+		$_SESSION['dafiti_'.$data['id']] = $data;
+		return 'Adding data id = ' . $data['id'];
 	}
 
 	public function delete($data){
-		return 'delete data' . print_r($data, 1);
+		unset($_SESSION['dafiti_'.$data['id']]);
+		return 'Delete data id =' . $data['id'];
 	}
 
 	public function edit($data){
-		return 'edit data' . print_r($data, 1);
+		$_SESSION['dafiti_'.$data['id']] = $data;
+		return 'Edit data id = ' . $data['id'];
 	}
 }

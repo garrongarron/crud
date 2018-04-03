@@ -1,6 +1,4 @@
 <?php 
 namespace dafiti;
 
-class Product extends Controller
-{
-}
+class Product extends Controller{}
